@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-12-09T01:00:00Z",
+  "description": "Launch coupon configuration for Operation Godspeed",
+  "coupon": {
+    "code": "AIHUB20",
+    "discountType": "percentage",
+    "discountValue": 20,
+    "maxUses": 1000,
+    "currentUses": 0,
+    "startDate": "2025-12-09T00:00:00Z",
+    "endDate": "2025-12-25T23:59:59Z",
+    "applicableSkus": [
+      "avatar-outfit-pack",
+      "founders-pass-monthly",
+      "done-app-integration",
+      "premium-support"
+    ],
+    "minimumPurchaseAmount": 0,
+    "restrictions": {
+      "oneUsePerCustomer": true,
+      "excludeOnSale": false,
+      "stackableWithOtherCoupons": false
+    }
+  },
+  "gumroadIntegration": {
+    "gumroadProductId": "ridewire-oasis",
+    "applicableVariants": [
+      "avatar-outfit-pack-$19.99",
+      "founders-pass-$49/month",
+      "done-app-$9.99/month",
+      "premium-support-$99/month"
+    ]
+  },
+  "expectedRevenueImpact": {
+    "initialTarget": "$200-$500 within 48 hours",
+    "costPerAcquisition": "$2.50",
+    "lifetimeValue": "$180",
+    "ltv_cac_ratio": "72:1"
+  },
+  "deploymentNotes": [
+    "Deployed in coordination with viral social media blitz",
+    "Twitter/X handles: @RideWireOasis #17DayMiracle",
+    "Reddit: r/worldbuilding community launch",
+    "Discord: Founder's community (500+ members)",
+    "YouTube: 6-episode narrative arc (6 videos, 42 min total)"
+  ],
+  "monitoringMetrics": {
+    "trackClicks": true,
+    "trackConversions": true,
+    "trackRevenuePerChannel": true,
+    "trackCustomerRetention": true
+  },
+  "status": "ACTIVE",
+  "lastUpdated": "2025-12-09T01:00:00Z",
+  "updatedBy": "STEPHENIESGEM"
+}
