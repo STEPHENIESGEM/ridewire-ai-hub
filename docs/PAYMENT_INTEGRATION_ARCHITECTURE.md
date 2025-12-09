@@ -189,6 +189,11 @@ Response:
 
 **Setup**:
 ```javascript
+// Validate Stripe API key before initialization
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('STRIPE_SECRET_KEY environment variable is required');
+}
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Create checkout session

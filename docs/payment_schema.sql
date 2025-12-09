@@ -2,11 +2,16 @@
 -- Version: 1.0
 -- Date: December 9, 2025
 -- Purpose: Support Stripe payment processing + Multi-AI fraud detection
+-- 
+-- PREREQUISITES: This schema assumes the 'users' table already exists
+-- from schema.sql. Run schema.sql first if not already deployed.
+-- Expected structure: users(id, email, password_hash, created_at)
 
 -- ============================================================
 -- TRANSACTIONS TABLE
 -- ============================================================
 -- Stores all payment transactions from Stripe
+-- Dependencies: Requires users table from schema.sql
 CREATE TABLE IF NOT EXISTS transactions (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),

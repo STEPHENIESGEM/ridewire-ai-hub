@@ -26,6 +26,8 @@
   ```
 - [ ] Create database tables
   ```bash
+  # Note: Adjust database name and user for your environment
+  # Default assumes: database=ridewire, user=postgres
   psql -U postgres -d ridewire -f docs/payment_schema.sql
   ```
 - [ ] Deploy SSL certificate (Let's Encrypt)
