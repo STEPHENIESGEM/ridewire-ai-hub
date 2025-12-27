@@ -24,7 +24,7 @@ This is **Stephanie's voluntary generosity**, not payment for RideWire work. You
 - **Free housing:** Worth $500-1,000/month
 - **Free food:** Worth $300-500/month  
 - **Support getting on your feet**
-- **OPTIONAL GIFT if you're a good roommate:** $607K-$4.85M equity at $800M exit
+- **OPTIONAL GIFT if you're a good roommate:** $304K-$9.12M equity at $800M exit
 
 **This is Stephanie being incredibly generous, not you earning wages.**
 
@@ -35,13 +35,13 @@ This is **Stephanie's voluntary generosity**, not payment for RideWire work. You
 **All 7 extended family members rotate through ALL chores equally. No gender-based assignments.**
 
 ### The 7 Extended Family Members:
-1. Melissa Adams
-2. Melissa's Daughter
-3. Matt Nicoles
-4. Community Member 1
-5. Community Member 2 (Rachelle)
-6. Community Member 3 (Russ)
-7. Community Member 4
+1. Melissa Adams - 2% gift ($6.08M at exit)
+2. Nicole (Melissa's daughter) - 3% gift ($9.12M at exit)
+3. Matt Nicoles - 0.2% gift ($607K at exit)
+4. Gino - 0.2% gift ($607K at exit)
+5. Jack - 0.2% gift ($607K at exit)
+6. Russ - 0.1% gift ($304K at exit)
+7. Rachelle - 0.1% gift ($304K at exit)
 
 ### Weekly Chore Assignments (Rotate Every Sunday):
 
