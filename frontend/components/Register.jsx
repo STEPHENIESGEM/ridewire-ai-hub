@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Register() {
+export default function Register({ setIsAuthenticated }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -33,13 +33,18 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/register', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+      const response = await axios.post(`${apiUrl}/register`, {
         email,
         password
       });
 
       // Store JWT token
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.userId);
+      
+      // Update authentication state
+      setIsAuthenticated(true);
       
       // Auto-login and redirect to chat
       navigate('/chat');
@@ -96,7 +101,7 @@ export default function Register() {
         </form>
 
         <p>
-          Already have an account? <a href="/login">Login here</a>
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </div>
     </div>
