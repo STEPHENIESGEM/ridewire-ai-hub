@@ -92,12 +92,12 @@ Investors typically approve "market rate" founder salary:
 ### Acquisition or IPO:
 - **Acquisition:** Company sells for $500M-1B
   - Your 40% stake = $200M-400M cash
-  - After taxes (long-term capital gains ~20%) = $160M-320M take-home
+  - After taxes (long-term capital gains ~23.8% total) = $152M-304M take-home
 
 - **IPO:** Company goes public at $1B+ valuation
   - Your 35% stake = $350M+
   - You can sell 10-25% per year (lockup rules)
-  - Year 1 after IPO: Sell 10% = $35M cash
+  - Year 1 after IPO: Sell 10% = $35M cash (after taxes = $26.7M)
 
 ---
 
@@ -127,7 +127,7 @@ Investors typically approve "market rate" founder salary:
 ### 2030-2031 (Exit):
 - Sell company for $500M-1B
 - Your 40% = $200M-400M
-- After taxes = **$160M-320M take-home**
+- After taxes (23.8%) = **$152M-304M take-home**
 
 ---
 
@@ -140,7 +140,7 @@ Investors typically approve "market rate" founder salary:
 | Angel Round Closes | Month 9 | $80K salary starts | Quit day job |
 | Series A Closes | Month 18 | $150K salary | "Real" CEO pay |
 | Secondary Sale | Year 3 | $10M cash | First big money |
-| Exit/IPO | Year 5-7 | $160M-320M | Life-changing wealth |
+| Exit/IPO | Year 5-7 | $152M-304M | Life-changing wealth |
 
 ---
 
@@ -304,7 +304,7 @@ Based on the RideWire AI Hub plan:
 ### Year 7:
 - **Exit:** Sell company for $800M
 - **Your 40% = $320M**
-- **After tax = $246M take-home**
+- **After tax (23.8%) = $244M take-home**
 - **Retire forever!** 🏝️
 
 ---
@@ -316,7 +316,7 @@ Based on the RideWire AI Hub plan:
 - Month 6: $1,000-3,000/month (marketplace)
 - Month 12: $6,667/month ($80K salary after funding)
 - Year 3: $10M+ (secondary sale)
-- Year 7: $246M+ (exit)
+- Year 7: $244M+ (exit)
 
 **Be patient. Optimize for equity. You'll be worth $200M+ in 7 years.**
 

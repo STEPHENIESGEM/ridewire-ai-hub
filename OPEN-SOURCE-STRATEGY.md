@@ -2,7 +2,7 @@
 
 ## The Question
 
-**"Is making this public/our process in the best idea for the company?"**
+**"Is making this public and our development process open the best idea for the company?"**
 
 This is one of the most important strategic decisions you'll make. Let's analyze both sides.
 
@@ -273,7 +273,11 @@ rm -rf *.js schema.sql package.json
 # Keep only documentation
 # Keep: *.md files, trailer.html, scripts/ folder, schemas/
 
-# Create new repo
+# Stage and commit the changes
+git add .
+git commit -m "Initial documentation-only repo"
+
+# Create new repo on GitHub
 gh repo create ridewire-docs --public
 
 # Push documentation

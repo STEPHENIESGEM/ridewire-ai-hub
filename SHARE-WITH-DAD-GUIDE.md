@@ -53,7 +53,8 @@ brew install heroku/brew/heroku
 
 #### 1.3 Deploy Backend
 ```bash
-cd /home/runner/work/ridewire-ai-hub/ridewire-ai-hub
+# Navigate to your project directory
+cd /path/to/ridewire-ai-hub
 
 # Login to Heroku
 heroku login
@@ -68,8 +69,8 @@ heroku config:set STRIPE_SECRET_KEY=sk_test_...
 heroku config:set JWT_SECRET=your-secret-here
 heroku config:set DATABASE_URL=postgresql://...
 
-# Deploy
-git push heroku copilot/merge-game-engine-design:main
+# Deploy (push your current branch to Heroku's main)
+git push heroku HEAD:main
 
 # Your backend is now live at:
 # https://ridewire-backend.herokuapp.com
@@ -180,7 +181,8 @@ Use Loom (free):
 
 ### Step 1: Run App Locally
 ```bash
-cd /home/runner/work/ridewire-ai-hub/ridewire-ai-hub
+# Navigate to your project directory
+cd /path/to/ridewire-ai-hub
 
 # Start backend
 npm install
