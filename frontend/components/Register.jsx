@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Register() {
+export default function Register({ setIsAuthenticated }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -40,6 +40,10 @@ export default function Register() {
 
       // Store JWT token
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.userId);
+      
+      // Update authentication state
+      setIsAuthenticated(true);
       
       // Auto-login and redirect to chat
       navigate('/chat');
@@ -96,7 +100,7 @@ export default function Register() {
         </form>
 
         <p>
-          Already have an account? <a href="/login">Login here</a>
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </div>
     </div>

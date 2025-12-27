@@ -21,11 +21,17 @@ app.post('/register', async (req, res) => {
       return res.status(400).json({ error: 'Email and password required' });
     }
     const hash = await bcrypt.hash(password, 10);
-    await pool.query(
-      'INSERT INTO users (email, password_hash) VALUES ($1, $2)',
+    const result = await pool.query(
+      'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id',
       [email, hash]
     );
-    res.status(201).json({ message: 'User registered successfully' });
+    
+    // Generate token for auto-login after registration
+    const token = jwt.sign({ id: result.rows[0].id }, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+    
+    res.status(201).json({ message: 'User registered successfully', token, userId: result.rows[0].id });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
