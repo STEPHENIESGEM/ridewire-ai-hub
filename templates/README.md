@@ -24,6 +24,7 @@ This folder contains ready-to-use TypeScript templates for integrating the RideW
 - Handles reconnection & error recovery
 
 **Copy-Paste Usage**:
+```typescript
 const sdk = new GameEngineSDK({
   backendUrl: 'https://ridewire.backend.com',
   wsUrl: 'wss://ridewire.backend.com',
@@ -40,6 +41,7 @@ const response = await sdk.queryDiagnostics({
 if (response.confidence >= 0.70) {
   console.log(response.recommendation);
 }
+```
 
 ### 2. SafetyRuleEngine.ts
 **Purpose**: Multi-gate safety veto system for AI consensus
@@ -75,8 +77,11 @@ Game Engine -> GameEngineSDK -> RideWire Backend -> 3 AI Engines -> AIResponseMa
 ## Safety Requirements
 
 Confidence Gate: Actions blocked if AI confidence < 70%
+
 Audit Trail: All decisions logged with timestamps
+
 Consensus Check: Requires agreement from 2+ AI engines
+
 Risk Assessment: High-risk actions require human confirmation
 
 ## Dependency Notes
@@ -85,7 +90,7 @@ All templates use vanilla TypeScript with:
 - Built-in WebSocket API
 - Native Fetch API for HTTP requests
 - Standard error handling
-- Zero npm dependencies
+- No external npm dependencies
 
 ## Common Questions
 
@@ -119,5 +124,5 @@ For questions or issues:
 ---
 
 Created by: Multi-AI Consensus Design Team
-Last Updated: 2024
+Last Updated: 2025
 Status: Ready for Phase 1 Implementation

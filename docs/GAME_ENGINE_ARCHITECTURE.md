@@ -186,7 +186,7 @@ interface ConsensusFeedback {
   action: "accept" | "reject" | "request_alternative" | "modify";
   mechanic_confidence: number; // 0-100, mechanic's override confidence
   notes: string; // Free-form notes for later audit
-  timestamp: ISO8601;
+  timestamp: string; // ISO 8601 format
 }
 ```
 

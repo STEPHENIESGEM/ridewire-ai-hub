@@ -121,16 +121,20 @@ export class SafetyRuleEngine {
   /**
    * Record mechanic feedback on a consensus result
    */
-  recordFeedback(feedback: Omit<ConsensusFeedback, 'timestamp'>): void {
+  recordFeedback(
+    feedback: Omit<ConsensusFeedback, 'timestamp'>,
+    recommendedActions?: string[]
+  ): void {
     this.feedbackLog.push({
       ...feedback,
       timestamp: new Date(),
     });
 
     // Update action history if accepted
-    if (feedback.action === 'accept') {
-      // Record all recommended actions from the consensus
-      // (implementation would need the result object)
+    if (feedback.action === 'accept' && recommendedActions) {
+      recommendedActions.forEach(action => {
+        this.actionHistory.set(action, new Date());
+      });
     }
   }
 

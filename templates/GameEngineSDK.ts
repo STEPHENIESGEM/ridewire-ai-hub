@@ -5,7 +5,10 @@
  * Manages query submission, response handling, and state persistence.
  */
 
-import { v4 as uuidv4 } from 'uuid';
+// Simple unique ID generator to avoid external dependencies
+function generateUniqueId(): string {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+}
 
 interface AIQuery {
   type: 'ai_query';
@@ -87,7 +90,7 @@ export class GameEngineSDK {
     confidenceThreshold: number = 0.7,
     timeoutMs: number = 30000
   ): Promise<string> {
-    const queryId = uuidv4();
+    const queryId = generateUniqueId();
     
     const query: AIQuery = {
       type: 'ai_query',
