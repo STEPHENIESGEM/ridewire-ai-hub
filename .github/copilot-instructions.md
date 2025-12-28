@@ -27,7 +27,7 @@ RideWire AI Hub is a **production-ready multi-AI orchestration platform** design
    - All user data must be encrypted (AES-256)
    - API keys must never be committed to the repository
    - User authentication must use secure JWT tokens with expiration
-   - Passwords must be hashed with bcrypt (minimum 10 rounds)
+   - Passwords must be hashed with bcrypt (12+ rounds, 12 in production recommended)
    - All diagnostic data is sensitive and must be treated accordingly
 
 4. **Third-Party AI Services**:
@@ -126,7 +126,7 @@ RideWire AI Hub is a **production-ready multi-AI orchestration platform** design
 
 ### Authentication
 - Password minimum requirements: 8 characters
-- Hash passwords with bcrypt (12 rounds in production)
+- Hash passwords with bcrypt (12+ rounds, 12 in production recommended)
 - JWT tokens should expire (24 hours recommended)
 - Implement session management with secure logout
 
