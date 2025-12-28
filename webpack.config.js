@@ -40,10 +40,10 @@ module.exports = {
     },
     historyApiFallback: true,
     compress: true,
-    port: 3001,
+    port: process.env.DEV_SERVER_PORT || 3001,
     proxy: {
-      '/api': 'http://localhost:3000',
-      '/messages': 'http://localhost:3000',
+      '/api': process.env.API_PROXY_URL || 'http://localhost:3000',
+      '/messages': process.env.API_PROXY_URL || 'http://localhost:3000',
     },
   },
 };

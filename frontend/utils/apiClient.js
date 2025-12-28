@@ -27,10 +27,23 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Unauthorized - clear token and redirect to login
+      // Unauthorized - clear token
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
-      window.location.href = '/login';
+      
+      // Only redirect if not already on login page
+      if (!window.location.pathname.includes('/login')) {
+        // Use a more React-friendly approach - dispatch a custom event
+        // that the app can listen to for navigation
+        window.dispatchEvent(new CustomEvent('auth:logout'));
+        
+        // Fallback to direct navigation if event not handled
+        setTimeout(() => {
+          if (!window.location.pathname.includes('/login')) {
+            window.location.href = '/login';
+          }
+        }, 100);
+      }
     }
     return Promise.reject(error);
   }
