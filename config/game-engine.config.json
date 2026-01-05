@@ -1,0 +1,205 @@
+{
+  "unity": {
+    "version": "2021.3.x LTS",
+    "buildTarget": "WebGL",
+    "compressionFormat": "Brotli",
+    "codeOptimization": "Size",
+    "stripEngineCode": true,
+    "buildSize": {
+      "maxWasmMB": 5,
+      "maxDataMB": 10,
+      "maxTotalMB": 15
+    },
+    "graphicsSettings": {
+      "textureCompression": "ETC2",
+      "maxTextureSize": 1024,
+      "shadowQuality": "Disabled",
+      "antiAliasing": "Disabled",
+      "vSync": "Disabled"
+    },
+    "scriptingBackend": "IL2CPP",
+    "apiCompatibilityLevel": ".NET Standard 2.1"
+  },
+  "arjs": {
+    "version": "3.4.x",
+    "sourceType": "webcam",
+    "debugUI": false,
+    "detectionMode": "mono",
+    "markerDetection": {
+      "resolution": "640x480",
+      "fps": 15,
+      "smoothing": false
+    },
+    "markerTypes": {
+      "hiro": {
+        "enabled": true,
+        "size": 0.05
+      },
+      "qrcode": {
+        "enabled": true,
+        "size": 0.08
+      },
+      "barcode": {
+        "enabled": true,
+        "size": 0.06
+      }
+    }
+  },
+  "webSocket": {
+    "protocol": "WSS",
+    "heartbeatInterval": 30000,
+    "reconnection": {
+      "enabled": true,
+      "maxAttempts": 10,
+      "initialDelay": 3000,
+      "maxDelay": 30000,
+      "backoffMultiplier": 2
+    },
+    "messageTypes": {
+      "DIAGNOSTIC_QUERY": "diagnostic_query",
+      "AI_CONSENSUS_RESULT": "ai_consensus_result",
+      "MARKER_DETECTED": "marker_detected",
+      "MARKER_LOST": "marker_lost",
+      "ERROR": "error",
+      "HEARTBEAT": "heartbeat"
+    }
+  },
+  "safety": {
+    "gates": {
+      "inputValidation": {
+        "enabled": true,
+        "maxQueryLength": 500,
+        "dangerousPatterns": ["<script", "SELECT", "DROP", "DELETE", "INSERT", "UPDATE"]
+      },
+      "confidenceThreshold": {
+        "enabled": true,
+        "minimumConfidence": 70,
+        "warningThreshold": 75
+      },
+      "safetyCritical": {
+        "enabled": true,
+        "keywords": [
+          "brakes", "brake", "airbag", "steering", "suspension",
+          "tire", "wheel bearing", "fuel system", "throttle"
+        ],
+        "urgencyLevel": "HIGH"
+      },
+      "liabilityFilter": {
+        "enabled": true,
+        "disclaimerVersion": "1.0.0",
+        "required": true
+      }
+    },
+    "confidenceLevels": {
+      "high": {
+        "min": 85,
+        "color": "#28a745",
+        "action": "display_result"
+      },
+      "medium": {
+        "min": 70,
+        "max": 84,
+        "color": "#ffc107",
+        "action": "display_with_warning"
+      },
+      "low": {
+        "max": 69,
+        "color": "#dc3545",
+        "action": "recommend_professional"
+      }
+    }
+  },
+  "performance": {
+    "targetFPS": 30,
+    "maxLoadTimeMS": 5000,
+    "maxMemoryMB": 200,
+    "batteryOptimization": {
+      "sessionTimeout": 300000,
+      "idleTimeout": 120000,
+      "pauseWhenNotVisible": true
+    },
+    "caching": {
+      "aiResponses": {
+        "enabled": true,
+        "ttl": 3600000,
+        "maxSize": 100
+      },
+      "markers": {
+        "enabled": true,
+        "ttl": 86400000
+      }
+    }
+  },
+  "markers": {
+    "registry": {
+      "engine_bay": {
+        "id": "MARKER_001",
+        "component": "Engine Bay",
+        "description": "Primary engine diagnostics",
+        "qrCode": "https://ridewire.tech/markers/001"
+      },
+      "fuse_box": {
+        "id": "MARKER_002",
+        "component": "Fuse Box",
+        "description": "Electrical system diagnostics",
+        "qrCode": "https://ridewire.tech/markers/002"
+      },
+      "obd_port": {
+        "id": "MARKER_003",
+        "component": "OBD-II Port",
+        "description": "Computer diagnostics",
+        "qrCode": "https://ridewire.tech/markers/003"
+      },
+      "wheel_well": {
+        "id": "MARKER_004",
+        "component": "Wheel Well",
+        "description": "Brake and suspension diagnostics",
+        "qrCode": "https://ridewire.tech/markers/004"
+      },
+      "transmission": {
+        "id": "MARKER_005",
+        "component": "Transmission",
+        "description": "Transmission diagnostics",
+        "qrCode": "https://ridewire.tech/markers/005"
+      }
+    }
+  },
+  "deviceCompatibility": {
+    "minimumRequirements": {
+      "ios": "12.0",
+      "android": "8.0",
+      "ram": "2GB",
+      "camera": "720p"
+    },
+    "testedDevices": [
+      "iPhone 11", "iPhone 12", "iPhone 13", "iPhone 14",
+      "Samsung Galaxy S10", "Samsung Galaxy S20", "Samsung Galaxy S21", "Samsung Galaxy S22",
+      "Google Pixel 4", "Google Pixel 5", "Google Pixel 6", "Google Pixel 7",
+      "iPad Pro 2018", "iPad Pro 2020", "iPad Pro 2021"
+    ]
+  },
+  "monitoring": {
+    "fps": {
+      "enabled": true,
+      "warningThreshold": 20,
+      "criticalThreshold": 15
+    },
+    "memory": {
+      "enabled": true,
+      "warningThreshold": 180,
+      "criticalThreshold": 200
+    },
+    "battery": {
+      "enabled": true,
+      "trackDrainRate": true
+    }
+  },
+  "features": {
+    "multiMarker": true,
+    "markerSmoothing": false,
+    "voiceCommands": false,
+    "videoRecording": false,
+    "screenshotCapture": true,
+    "shareReports": true
+  }
+}
