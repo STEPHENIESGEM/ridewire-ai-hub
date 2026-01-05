@@ -78,6 +78,7 @@ app.post('/messages', async (req, res) => {
 });
 
 // Legal disclaimer acceptance endpoint
+// TODO: Add rate limiting to prevent abuse (e.g., using express-rate-limit)
 app.post('/api/legal/accept-disclaimer', async (req, res) => {
   try {
     const { agreementType, timestamp } = req.body;
@@ -112,6 +113,7 @@ app.post('/api/legal/accept-disclaimer', async (req, res) => {
 });
 
 // Check if user has accepted disclaimer
+// TODO: Add rate limiting to prevent abuse (e.g., using express-rate-limit)
 app.get('/api/legal/check-disclaimer/:agreementType', async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
