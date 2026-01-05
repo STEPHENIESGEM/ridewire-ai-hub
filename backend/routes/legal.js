@@ -30,8 +30,11 @@ router.post('/accept-disclaimer', async (req, res) => {
       return res.status(400).json({ error: 'Invalid disclaimer type' });
     }
 
-    // Get user's IP address and user agent
-    const ipAddress = req.ip || req.connection.remoteAddress;
+    // Get user's IP address (handle proxies and load balancers)
+    const ipAddress = req.headers['x-forwarded-for']?.split(',')[0].trim() || 
+                      req.headers['x-real-ip'] || 
+                      req.ip || 
+                      req.connection.remoteAddress;
     const userAgent = req.get('user-agent');
 
     // Insert or update user agreement

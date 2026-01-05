@@ -44,7 +44,8 @@ class SafetyRuleEngine {
       return { pass: false, gate: 'Gate 1', message: 'Query too long' };
     }
 
-    const dangerous = /(<script|SELECT|DROP|DELETE|INSERT|UPDATE)/i;
+    // Enhanced dangerous pattern detection
+    const dangerous = /(<script|SELECT|DROP|DELETE|INSERT|UPDATE|UNION|EXEC|CREATE|ALTER|javascript:|onerror=|onload=)/i;
     if (dangerous.test(query)) {
       return { pass: false, gate: 'Gate 1', message: 'Invalid characters detected' };
     }
