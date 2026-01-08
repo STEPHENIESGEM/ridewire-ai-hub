@@ -35,6 +35,7 @@ RideWire AI Hub is a cutting-edge platform that orchestrates multiple AI agents 
 ### Core Features
 
 - **Multi-AI Collaboration**: Three independent AI agents analyze queries simultaneously and reach consensus
+- **🌐 NEW: Wicked Problems Unified Intelligence**: Treats 5 complex problems as ONE interconnected system
 - **AR Auto Diagnostic Foundation**: Ready for integration with AR overlays for vehicle diagnostics
 - **Secure Message Storage**: Client-side encryption for all communications
 - **User Authentication**: Session-based login with secure credential handling
@@ -54,6 +55,77 @@ RideWire AI Hub is a cutting-edge platform that orchestrates multiple AI agents 
 | **AI Integration** | OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini) |
 | **Security** | Client-side AES-256 encryption, bcrypt password hashing |
 | **Authentication** | JWT tokens, session management |
+
+---
+
+## 🌐 Wicked Problems Unified Intelligence System
+
+### NEW FEATURE: Systems-Level Problem Analysis
+
+RideWire AI Hub now includes a revolutionary feature that analyzes complex "wicked problems" as ONE interconnected mega-system, rather than treating them as separate issues.
+
+#### The 5 Wicked Problems
+
+1. **RW-CLD-001**: Mars Biomineralization
+2. **RW-GEM-002**: Climate Direct Air Capture
+3. **RW-GEM-003**: Cultivated Meat Production
+4. **RW-PER-004**: Governance Policy Simulation
+5. **RW-LMA-005**: Development & Justice Analysis
+
+#### How It Works
+
+1. **Upload 5 Reports**: Provide data/analysis for each wicked problem
+2. **Multi-AI Analysis**: ChatGPT, Claude, and Gemini analyze as unified system
+3. **Unified Insights**: Receive comprehensive analysis showing:
+   - **Meta-Problem**: Root cause connecting all 5 problems
+   - **Interconnections Map**: 6+ connections between problems
+   - **Unified Solutions**: 3-5 solutions addressing multiple problems simultaneously
+   - **Action Plan**: Phased implementation roadmap (3 phases)
+   - **Risk Assessment**: Key risks with mitigation strategies
+   - **Consensus Score**: 67-100% agreement across AI agents
+
+#### Key Benefits
+
+✅ **Systems Thinking**: See problems as interconnected, not isolated  
+✅ **Resource Efficiency**: Share infrastructure and solutions across domains  
+✅ **Higher Impact**: Solutions that address multiple challenges at once  
+✅ **AI Consensus**: Validated by 3 independent AI perspectives  
+✅ **Actionable**: Phased implementation plan with clear next steps
+
+#### Quick Start
+
+```bash
+# Access the feature
+1. Login to RideWire AI Hub
+2. Navigate to /wicked-problems
+3. Upload all 5 problem reports
+4. Click "Analyze as Unified Problem"
+5. Review comprehensive results
+```
+
+#### Documentation
+
+- 📖 **Full API Docs**: `docs/WICKED_PROBLEMS_UNIFIED.md`
+- 🏗️ **Architecture**: `docs/ARCHITECTURE_DIAGRAM.md`
+- 🚀 **Quick Start**: `docs/QUICK_START.md`
+- 🧪 **API Testing**: `docs/wicked-problems-api-test.js`
+
+#### API Endpoint
+
+```javascript
+POST /api/wicked-problems/unified-analysis
+Authorization: Bearer <jwt_token>
+
+{
+  "reports": [
+    { "id": "RW-CLD-001", "data": "..." },
+    { "id": "RW-GEM-002", "data": "..." },
+    { "id": "RW-GEM-003", "data": "..." },
+    { "id": "RW-PER-004", "data": "..." },
+    { "id": "RW-LMA-005", "data": "..." }
+  ]
+}
+```
 
 ---
 
