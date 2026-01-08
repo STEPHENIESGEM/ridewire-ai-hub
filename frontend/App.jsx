@@ -9,6 +9,7 @@ import HeroSection from './components/HeroSection';
 import Disclaimer from './components/Disclaimer';
 import Terms from './components/Terms';
 import NotFound from './components/NotFound';
+import WickedProblemsUnified from './components/WickedProblemsUnified';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,6 +49,10 @@ function App() {
           <Route 
             path="/chat" 
             element={isAuthenticated ? <Chat /> : <Navigate to="/login" />} 
+          />
+          <Route 
+            path="/wicked-problems" 
+            element={isAuthenticated ? <WickedProblemsUnified /> : <Navigate to="/login" />} 
           />
           
           {/* 404 Fallback */}

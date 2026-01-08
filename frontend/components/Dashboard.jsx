@@ -130,6 +130,20 @@ export default function Dashboard() {
           🚀 Start New Chat
         </Link>
 
+        <Link to="/wicked-problems" style={{
+          textDecoration: 'none',
+          background: 'linear-gradient(135deg, #00d9ff 0%, #00ff88 100%)',
+          color: '#000',
+          padding: '20px',
+          borderRadius: '10px',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontSize: '16px',
+          transition: 'transform 0.2s'
+        }}>
+          🌐 Wicked Problems AI
+        </Link>
+
         <Link to="/pricing" style={{
           textDecoration: 'none',
           background: 'rgba(255,255,255,0.1)',
@@ -156,6 +170,7 @@ export default function Dashboard() {
           <li>Click "Start New Chat" to begin a multi-AI consultation</li>
           <li>Ask questions to ChatGPT, Claude, and Gemini simultaneously</li>
           <li>Review consensus recommendations from all three AI agents</li>
+          <li>Use "Wicked Problems AI" to analyze interconnected complex challenges</li>
           <li>Upgrade to Pro for unlimited messages and advanced features</li>
         </ul>
       </div>

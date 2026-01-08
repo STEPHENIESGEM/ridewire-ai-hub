@@ -3,6 +3,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
+const WickedProblemsUnified = require('./backend/wicked-problems-unified');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -93,6 +94,63 @@ app.get('/messages/:session_id', async (req, res) => {
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// Wicked Problems Unified Analysis endpoint
+app.post('/api/wicked-problems/unified-analysis', async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const { reports } = req.body;
+    
+    if (!reports || !Array.isArray(reports) || reports.length !== 5) {
+      return res.status(400).json({ 
+        error: 'Exactly 5 problem reports required',
+        expected_format: {
+          reports: [
+            { id: 'RW-CLD-001', data: '...' },
+            { id: 'RW-GEM-002', data: '...' },
+            { id: 'RW-GEM-003', data: '...' },
+            { id: 'RW-PER-004', data: '...' },
+            { id: 'RW-LMA-005', data: '...' }
+          ]
+        }
+      });
+    }
+    
+    // Validate report IDs
+    const expectedIds = ['RW-CLD-001', 'RW-GEM-002', 'RW-GEM-003', 'RW-PER-004', 'RW-LMA-005'];
+    const reportIds = reports.map(r => r.id).sort();
+    const hasAllIds = expectedIds.every(id => reportIds.includes(id));
+    
+    if (!hasAllIds) {
+      return res.status(400).json({ 
+        error: 'Invalid report IDs. Must include all 5 wicked problems',
+        expected: expectedIds,
+        received: reportIds
+      });
+    }
+    
+    // Generate session ID for tracking
+    const sessionId = `wicked-${Date.now()}-${decoded.id}`;
+    
+    // Perform unified analysis
+    const wickedAnalyzer = new WickedProblemsUnified();
+    const result = await wickedAnalyzer.analyzeUnified(reports, sessionId);
+    
+    res.json(result);
+  } catch (err) {
+    console.error('Wicked problems analysis error:', err.message);
+    res.status(500).json({ 
+      error: 'Analysis failed',
+      message: err.message,
+      disclaimer: 'This is an AI-powered analysis tool. Results are for informational purposes only.'
+    });
   }
 });
 
