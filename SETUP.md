@@ -1,11 +1,18 @@
 # RIDEWIRE AI Hub - Setup & Deployment Guide
 
+**Built on Azure OpenAI Service and Microsoft Infrastructure**  
+**Company:** RIDEWIRE LLC | **Founder:** Stephenie N. Lacy | **Contact:** hello@stepheniesgem.io
+
+---
+
 ## Quick Start (Local Development)
 
 ### Prerequisites
 - Node.js v18+ 
 - npm v9+
 - Git
+- Azure OpenAI Service access
+- Azure account (for production deployment)
 
 ### Installation
 
@@ -25,20 +32,47 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` with your API keys:
+Edit `.env` with your Azure OpenAI credentials:
 ```
-OPENAI_API_KEY=your_openai_key
-ANTHROPIC_API_KEY=your_claude_key
-GOOGLE_API_KEY=your_gemini_key
-JWT_SECRET=your_jwt_secret
-DB_PATH=./data/ridewire.db
+# Azure OpenAI Service Configuration
+AZURE_OPENAI_KEY=your-azure-openai-key-here
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT_GPT4=gpt-4-deployment-name
+AZURE_OPENAI_DEPLOYMENT_GPT4O=gpt-4o-deployment-name
+AZURE_OPENAI_DEPLOYMENT_GPT4_TURBO=gpt-4-turbo-deployment-name
+AZURE_OPENAI_API_VERSION=2024-02-15-preview
+
+# Database Configuration
+DATABASE_URL=postgres://username:password@localhost:5432/ridewire
+
+# JWT Secret
+JWT_SECRET=your_jwt_secret_key_here_change_in_production
+
+# Server Configuration
 PORT=3000
 NODE_ENV=development
 ```
 
+### Azure OpenAI Setup
+
+1. **Create Azure OpenAI Resource**
+   - Go to Azure Portal (https://portal.azure.com)
+   - Create a new Azure OpenAI resource
+   - Note your endpoint URL and API key
+
+2. **Deploy Models**
+   Deploy the following models in your Azure OpenAI resource:
+   - GPT-4 (for strategic analysis)
+   - GPT-4o (for deep reasoning)
+   - GPT-4 Turbo (for adversarial validation)
+
+3. **Get Deployment Names**
+   - Copy your deployment names from Azure Portal
+   - Update `.env` file with these deployment names
+
 4. **Initialize database**
 ```bash
-node -e "require('./schema.sql')"
+psql -U username -d ridewire -f schema.sql
 ```
 
 5. **Start the application**
@@ -56,39 +90,101 @@ npm run dev
 ### Access the application
 - Frontend: http://localhost:3000
 - API: http://localhost:3000/api
+- Email Dashboard: http://localhost:3000/email-dashboard
 
 ---
 
-## Production Deployment
+## Production Deployment on Azure
 
-### Hosting Options
+### Option 1: Azure App Service (Recommended)
 
-#### Option 1: Heroku
+1. **Create Azure App Service**
 ```bash
-heroku create ridewire-ai-hub
-heroku config:set OPENAI_API_KEY=your_key
-heroku config:set ANTHROPIC_API_KEY=your_key
-heroku config:set GOOGLE_API_KEY=your_key
-heroku config:set JWT_SECRET=your_secret
-git push heroku main
+az webapp create --resource-group ridewire-rg --plan ridewire-plan --name ridewire-ai-hub --runtime "NODE|18-lts"
 ```
 
-#### Option 2: Railway
+2. **Configure Environment Variables**
 ```bash
-railway link
-railway up
+az webapp config appsettings set --resource-group ridewire-rg --name ridewire-ai-hub --settings \
+  AZURE_OPENAI_KEY="your-key" \
+  AZURE_OPENAI_ENDPOINT="your-endpoint" \
+  DATABASE_URL="your-azure-sql-connection-string"
 ```
 
-#### Option 3: Vercel (Frontend) + Railway (Backend)
+3. **Deploy Code**
 ```bash
-vercel deploy
-# Deploy backend to Railway
+az webapp deployment source config --resource-group ridewire-rg --name ridewire-ai-hub \
+  --repo-url https://github.com/STEPHENIESGEM/ridewire-ai-hub --branch main --manual-integration
 ```
 
-#### Option 4: DigitalOcean App Platform
-1. Connect GitHub repository
-2. Set environment variables
-3. Deploy
+### Option 2: Azure Container Apps
+
+```bash
+# Build and push container
+docker build -t ridewire-ai-hub .
+docker tag ridewire-ai-hub your-registry.azurecr.io/ridewire-ai-hub
+docker push your-registry.azurecr.io/ridewire-ai-hub
+
+# Deploy to Azure Container Apps
+az containerapp create \
+  --name ridewire-ai-hub \
+  --resource-group ridewire-rg \
+  --image your-registry.azurecr.io/ridewire-ai-hub \
+  --environment ridewire-env \
+  --ingress external --target-port 3000
+```
+
+### Option 3: Azure Static Web Apps + Azure Functions
+
+Deploy frontend as Static Web App and backend as Azure Functions for serverless architecture.
+
+---
+
+## Azure Services Configuration
+
+### Azure SQL Database
+
+1. **Create Azure SQL Database**
+```bash
+az sql server create --name ridewire-sql --resource-group ridewire-rg --location eastus --admin-user sqladmin --admin-password YourPassword123!
+az sql db create --resource-group ridewire-rg --server ridewire-sql --name ridewire-db --service-objective S0
+```
+
+2. **Run Schema**
+```bash
+sqlcmd -S ridewire-sql.database.windows.net -d ridewire-db -U sqladmin -P YourPassword123! -i schema.sql
+```
+
+### Azure Storage (For File Uploads)
+
+```bash
+az storage account create --name ridewirestorage --resource-group ridewire-rg --location eastus --sku Standard_LRS
+```
+
+---
+
+## COCO Email Automation Setup
+
+### Email Service Integration
+
+The COCO email system requires integration with an email service provider. Recommended options:
+
+1. **SendGrid (Azure Marketplace)**
+```bash
+# Add SendGrid API key to environment
+SENDGRID_API_KEY=your-sendgrid-key
+```
+
+2. **Azure Communication Services**
+```bash
+# Setup Azure Communication Services for email
+az communication create --name ridewire-comm --resource-group ridewire-rg
+```
+
+3. **Manual Approval Flow (Default)**
+   - COCO generates drafts
+   - Stephenie reviews in approval queue
+   - Manual send from email client
 
 ---
 
@@ -104,9 +200,9 @@ STRIPE_SECRET_KEY=sk_live_...
 ```
 
 ### Subscription Tiers
-- **Free**: 50 messages/month
-- **Pro**: $9.99/month (500 messages)
-- **Enterprise**: $99/month (unlimited)
+- **Free**: Basic intelligence reports
+- **Pro**: $9,999/report (30-40 page validated intelligence reports)
+- **Enterprise**: Custom pricing for ongoing intelligence
 
 ---
 
@@ -114,46 +210,74 @@ STRIPE_SECRET_KEY=sk_live_...
 
 ```
 ridewire-ai-hub/
-├── server.js                 # Express backend
-├── encryption.js             # Zero-knowledge encryption
-├── multiAIOrchestrator.js   # AI consensus logic
-├── schema.sql               # Database schema
-├── package.json             # Dependencies
-├── .env.example            # Configuration template
+├── server.js                          # Express backend
+├── encryption.js                      # Zero-knowledge encryption
+├── multiAIOrchestrator.js            # Azure OpenAI multi-agent orchestration
+├── schema.sql                         # PostgreSQL schema
+├── package.json                       # Dependencies (includes @azure/openai)
+├── .env.example                       # Configuration template
+├── backend/
+│   └── email-automation/              # COCO Email System
+│       ├── coco-email-agent.js       # Main orchestrator
+│       ├── email-templates.js        # Template library
+│       ├── reply-detector.js         # Reply monitoring
+│       ├── draft-generator.js        # Draft creation
+│       ├── scheduler.js              # Follow-up timing
+│       ├── crm-tracker.js           # CRM tracking
+│       └── target-list.json         # Contact database
 └── frontend/
-    ├── App.jsx             # React root component
-    ├── components/         # React components
-    │   ├── Chat.jsx       # Chat interface
-    │   ├── Login.jsx      # Auth
-    │   └── Register.jsx   # Registration
-    ├── styles/            # CSS files
-    │   ├── Auth.css
-    │   └── Chat.css
+    ├── App.jsx                        # React root component
+    ├── components/                    # React components
+    │   ├── Chat.jsx                  # Azure OpenAI chat interface
+    │   ├── Login.jsx                 # Auth
+    │   └── Register.jsx              # Registration
+    ├── email-dashboard/               # COCO Email Dashboard
+    │   ├── Dashboard.js              # Email activity overview
+    │   ├── ApprovalQueue.js          # Review drafts
+    │   └── ContactList.js            # Contact management
+    ├── styles/                        # CSS files
     └── public/
-        └── index.html      # HTML entry point
+        └── index.html                 # HTML entry point
 ```
 
 ---
 
 ## Key Features
 
-✅ Multi-AI Consensus (ChatGPT, Claude, Gemini)
-✅ Zero-Knowledge Encryption
-✅ JWT Authentication
-✅ SQLite Database
-✅ Production-Ready React Frontend
-✅ Subscription Management
-✅ RESTful API
+✅ Multi-AI Consensus (Azure OpenAI: GPT-4, GPT-4o, GPT-4 Turbo)  
+✅ Flip-Flop Adversarial Validation System  
+✅ COCO Email Automation (Powered by Azure OpenAI)  
+✅ Zero-Knowledge Encryption  
+✅ JWT Authentication  
+✅ Azure SQL Database / PostgreSQL  
+✅ Production-Ready React Frontend  
+✅ CRM & Pipeline Tracking  
+✅ RESTful API  
+
+---
+
+## Microsoft for Startups
+
+This platform is built entirely on Microsoft Azure infrastructure:
+- Azure OpenAI Service for all AI capabilities
+- Azure App Service for hosting
+- Azure SQL Database for data storage
+- GitHub for version control
+- VS Code for development
+
+Perfect for Microsoft for Startups program application.
 
 ---
 
 ## Support & Issues
 
 - GitHub Issues: https://github.com/STEPHENIESGEM/ridewire-ai-hub/issues
-- Email: support@ridewire.ai
+- Email: hello@stepheniesgem.io
 
 ---
 
 ## License
 
 MIT License - See LICENSE file
+
+**RIDEWIRE LLC** | Founded by Stephenie N. Lacy

@@ -2,61 +2,70 @@
 
 ## Repository Overview
 
-RideWire AI Hub is a **production-ready multi-AI orchestration platform** designed for enterprise auto diagnostics. This is a high-tech diagnostic platform company that provides AI-powered automotive analysis tools. The platform combines multiple AI agents (ChatGPT, Claude, Gemini) for consensus-based diagnostics with AR visualization capabilities.
+RideWire AI Hub is a **production-ready multi-AI orchestration platform** built entirely on **Azure OpenAI Service and Microsoft infrastructure**. This is an enterprise intelligence and business automation platform company. The platform uses Azure OpenAI's GPT-4, GPT-4o, and GPT-4 Turbo models with flip-flop adversarial validation for high-confidence intelligence reports and email automation.
+
+**Company:** RIDEWIRE LLC  
+**Founder:** Stephenie N. Lacy  
+**Contact:** hello@stepheniesgem.io
 
 ## 🚨 CRITICAL LEGAL & COMPLIANCE REQUIREMENTS
 
 ### Legal Disclaimers - MUST BE INCLUDED
 
-**IMPORTANT**: This platform provides diagnostic assistance tools ONLY. When implementing any user-facing features or documentation:
+**IMPORTANT**: This platform provides intelligence and automation tools ONLY. When implementing any user-facing features or documentation:
 
 1. **Always include appropriate disclaimers** stating:
-   - AI-generated diagnostics are for informational purposes only
-   - Users should consult qualified mechanics and automotive professionals
-   - RideWire does not replace professional automotive repair services
+   - AI-generated intelligence is for informational purposes only
+   - Users should consult qualified professionals in their respective fields
+   - RideWire does not replace professional services
    - No liability for damages from following AI recommendations
-   - Users are responsible for verifying all diagnostic information
+   - Users are responsible for verifying all information
 
 2. **Professional Services Disclaimer**:
-   - This platform does NOT replace certified mechanics, CPAs, or other licensed professionals
+   - This platform does NOT replace licensed professionals (financial advisors, lawyers, etc.)
    - All AI-generated content is advisory and educational only
-   - Users must verify critical automotive decisions with qualified professionals
+   - Users must verify critical business decisions with qualified professionals
    - Platform provides tools for analysis, not professional services
 
 3. **Data Privacy & Security**:
    - All user data must be encrypted (AES-256)
    - API keys must never be committed to the repository
    - User authentication must use secure JWT tokens with expiration
-   - Passwords must be hashed with bcrypt (12+ rounds, 12 in production recommended)
-   - All diagnostic data is sensitive and must be treated accordingly
+   - Passwords must be hashed with bcrypt (12+ rounds)
+   - All business data is sensitive and must be treated accordingly
 
 4. **Third-Party AI Services**:
-   - Responses from OpenAI, Anthropic, and Google are subject to their terms of service
+   - All AI responses are from Azure OpenAI Service (Microsoft)
    - AI model outputs are not guaranteed to be accurate
-   - Platform aggregates multiple AI opinions for improved reliability but cannot guarantee correctness
+   - Platform uses flip-flop adversarial validation for improved reliability but cannot guarantee correctness
 
 ## Technology Stack
 
 ### Backend
 - **Runtime**: Node.js 16+
 - **Framework**: Express.js 4.18+
-- **Database**: PostgreSQL 12+ with indexed schemas
+- **Database**: PostgreSQL 12+ (Azure SQL compatible)
 - **Authentication**: JWT tokens with bcrypt password hashing
 - **Security**: AES-256 client-side encryption
 
 ### Frontend
 - **Framework**: React.js
 - **Styling**: CSS3 (custom styles in frontend/styles/)
-- **Future**: AR.js integration for augmented reality overlays
 
 ### AI Integrations
-- **OpenAI API**: ChatGPT for natural language understanding
-- **Anthropic API**: Claude for deep reasoning and analysis
-- **Google AI**: Gemini for additional perspective
+- **Azure OpenAI Service**: GPT-4, GPT-4o, GPT-4 Turbo
+- **Flip-Flop Adversarial System**: Builder/Villain/Judge architecture
+- **Email Automation**: COCO system powered by Azure OpenAI
+
+### Cloud Platform
+- **Microsoft Azure**: App Service, Azure SQL, Azure Storage
+- **Azure OpenAI Service**: All AI capabilities
+- **GitHub**: Version control
 
 ### Key Dependencies
 - `express`: Web server framework
 - `pg`: PostgreSQL client
+- `@azure/openai`: Azure OpenAI SDK
 - `jsonwebtoken`: JWT token generation/validation
 - `bcrypt`: Password hashing
 - `dotenv`: Environment variable management
@@ -108,11 +117,14 @@ RideWire AI Hub is a **production-ready multi-AI orchestration platform** design
 - Store all secrets in `.env` file (never commit this file)
 - Use `.env.example` as a template
 - Required variables:
-  - `DATABASE_URL`: PostgreSQL connection string
+  - `DATABASE_URL`: PostgreSQL connection string (or Azure SQL)
   - `JWT_SECRET`: Secret for JWT signing
-  - `OPENAI_API_KEY`: OpenAI API key
-  - `ANTHROPIC_API_KEY`: Anthropic/Claude API key
-  - `GOOGLE_API_KEY`: Google/Gemini API key
+  - `AZURE_OPENAI_KEY`: Azure OpenAI API key
+  - `AZURE_OPENAI_ENDPOINT`: Azure OpenAI endpoint URL
+  - `AZURE_OPENAI_DEPLOYMENT_GPT4`: GPT-4 deployment name
+  - `AZURE_OPENAI_DEPLOYMENT_GPT4O`: GPT-4o deployment name
+  - `AZURE_OPENAI_DEPLOYMENT_GPT4_TURBO`: GPT-4 Turbo deployment name
+  - `AZURE_OPENAI_API_VERSION`: API version (e.g., 2024-02-15-preview)
   - `PORT`: Server port (default 3000)
   - `NODE_ENV`: development/production
 
@@ -146,26 +158,41 @@ RideWire AI Hub is a **production-ready multi-AI orchestration platform** design
 
 ## AI Integration Guidelines
 
-### Multi-AI Orchestration
-- Use `multiAIOrchestrator.js` for coordinating AI agents
-- Always handle API failures gracefully (one AI failing shouldn't break the app)
+### Azure OpenAI Multi-Agent Orchestration
+- Use `multiAIOrchestrator.js` for coordinating Azure OpenAI agents
+- All AI agents are powered by Azure OpenAI Service (GPT-4, GPT-4o, GPT-4 Turbo)
+- Always handle API failures gracefully (one agent failing shouldn't break the app)
 - Implement timeouts for AI API calls (30 seconds recommended)
 - Cache responses when appropriate to reduce API costs
 - Log AI interactions for debugging (without sensitive user data)
 
+### Flip-Flop Adversarial System
+- Builder Agent (GPT-4): Creates initial analysis
+- Villain Agent (GPT-4 Turbo): Challenges and critiques the analysis
+- Builder Revision: Addresses critiques and improves analysis
+- Judge Synthesizer (GPT-4o): Creates final validated conclusion
+- Results in 95%+ confidence scores after adversarial validation
+
 ### Consensus Mechanism
-- Gather responses from all available AI agents
+- Gather responses from all Azure OpenAI agents
 - Compare responses for consistency
 - Weight responses by confidence scores
 - Provide users with both consensus and individual agent opinions
 - Handle conflicting responses transparently
 
+### COCO Email Automation
+- Use Azure OpenAI for email generation and reply drafting
+- Personalize emails using contact data and templates
+- Detect reply intent using Azure OpenAI analysis
+- Generate meeting responses and follow-ups automatically
+- All drafts require Stephenie's approval before sending
+
 ### Error Handling for AI APIs
 - Implement retry logic with exponential backoff
-- Provide fallback responses if all AIs fail
+- Provide fallback responses if Azure OpenAI fails
 - Display user-friendly error messages
 - Never expose raw API error messages to users
-- Monitor API quota and rate limits
+- Monitor Azure OpenAI quota and rate limits
 
 ## Testing & Quality Assurance
 
@@ -234,23 +261,36 @@ RideWire AI Hub is a **production-ready multi-AI orchestration platform** design
 
 ```
 ridewire-ai-hub/
-├── server.js                     # Main Express server & authentication
-├── multiAIOrchestrator.js       # Multi-AI agent coordination
-├── encryption.js                 # Client-side encryption utilities
-├── schema.sql                    # PostgreSQL database schema
-├── package.json                  # Dependencies and scripts
-├── .env.example                  # Environment variable template
-├── .gitignore                    # Exclude node_modules, .env, etc.
+├── server.js                          # Main Express server & authentication
+├── multiAIOrchestrator.js            # Azure OpenAI multi-agent orchestration
+├── encryption.js                      # Client-side encryption utilities
+├── schema.sql                         # PostgreSQL database schema
+├── package.json                       # Dependencies (@azure/openai included)
+├── .env.example                       # Environment variable template
+├── .gitignore                         # Exclude node_modules, .env, etc.
+├── backend/
+│   └── email-automation/             # COCO Email Automation System
+│       ├── coco-email-agent.js      # Main email orchestrator
+│       ├── email-templates.js       # Template library
+│       ├── reply-detector.js        # Reply monitoring & intent detection
+│       ├── draft-generator.js       # Azure OpenAI draft generation
+│       ├── scheduler.js             # Follow-up scheduling
+│       ├── crm-tracker.js          # CRM & pipeline tracking
+│       └── target-list.json        # Contact database
 ├── frontend/
-│   ├── App.jsx                  # React root component
-│   ├── components/              # React UI components
-│   │   ├── Chat.jsx            # Chat interface
-│   │   ├── Login.jsx           # Login form
-│   │   ├── Register.jsx        # Registration form
-│   │   ├── Pricing.jsx         # Pricing tiers
-│   │   └── HeroSection.jsx     # Landing page hero
-│   ├── styles/                  # CSS stylesheets
-│   └── public/                  # Static assets
+│   ├── App.jsx                      # React root component
+│   ├── components/                  # React UI components
+│   │   ├── Chat.jsx                # Azure OpenAI chat interface
+│   │   ├── Login.jsx               # Login form
+│   │   ├── Register.jsx            # Registration form
+│   │   ├── Pricing.jsx             # Pricing tiers
+│   │   └── HeroSection.jsx         # Landing page hero
+│   ├── email-dashboard/             # COCO Email Dashboard
+│   │   ├── Dashboard.js            # Email activity overview
+│   │   ├── ApprovalQueue.js        # Review COCO's drafts
+│   │   └── ContactList.js          # Contact management
+│   ├── styles/                      # CSS stylesheets
+│   └── public/                      # Static assets
 ├── docs/                         # Documentation
 └── schemas/                      # JSON schemas
 ```
@@ -286,19 +326,44 @@ app.post('/api/query', authenticateToken, async (req, res) => {
 });
 ```
 
-### Calling Multiple AI Agents
+### Calling Azure OpenAI Agents
 ```javascript
-// Use the orchestrator for consistent multi-AI queries
+// Use the orchestrator for Azure OpenAI multi-agent queries
 const orchestrator = new MultiAIOrchestrator();
 const results = await orchestrator.queryAllAgents(userQuery, sessionId);
 
 // Always handle partial failures
 if (Object.keys(results.errors).length > 0) {
-  console.warn('Some AI agents failed:', results.errors);
+  console.warn('Some Azure OpenAI agents failed:', results.errors);
 }
 
+// Use flip-flop adversarial validation for high-confidence results
+const adversarialResult = await orchestrator.flipFlopAdversarial(
+  initialResponse,
+  originalQuery
+);
+// Results in 95%+ confidence after validation
+
 // Process consensus
-const consensus = orchestrator.calculateConsensus(results.responses);
+const consensus = orchestrator.buildConsensus(results.responses);
+```
+
+### COCO Email Automation
+```javascript
+// Generate personalized email using Azure OpenAI
+const coco = new CocoEmailAgent();
+const email = await coco.generatePersonalizedEmail(contact, 'initialOutreach');
+
+// Add to approval queue for Stephenie
+const queuePosition = coco.addToApprovalQueue(email);
+
+// Detect reply intent
+const replyDetector = new ReplyDetector();
+const intent = await replyDetector.analyzeReplyIntent(incomingEmail.body, contact);
+
+// Generate draft response
+const draftGenerator = new DraftGenerator();
+const draft = await draftGenerator.generateDraftReply(incomingEmail, contact, intent);
 ```
 
 ### Database Queries
@@ -323,11 +388,17 @@ try {
 
 ## Important Reminders
 
-1. **Legal Safety**: Always include disclaimers that this platform does NOT replace professional mechanics, CPAs, or other licensed professionals
-2. **Security**: Treat all user data as sensitive and encrypt appropriately
-3. **Quality**: Triple-check authentication, authorization, and data validation
-4. **AI Reliability**: Never claim 100% accuracy - AI is advisory only
-5. **Professional Services**: Make it clear this is a diagnostic tool, not professional service delivery
+1. **Microsoft Stack**: All AI capabilities powered by Azure OpenAI Service (GPT-4, GPT-4o, GPT-4 Turbo)
+2. **Legal Safety**: Always include disclaimers that this platform does NOT replace licensed professionals
+3. **Security**: Treat all user data as sensitive and encrypt appropriately
+4. **Quality**: Triple-check authentication, authorization, and data validation
+5. **AI Reliability**: Never claim 100% accuracy - flip-flop adversarial validation provides 95%+ confidence but is still advisory
+6. **Professional Services**: Make it clear this is an intelligence and automation tool, not professional service delivery
+7. **Data Privacy**: User intelligence and email data is private and confidential
+8. **API Costs**: Be mindful of Azure OpenAI usage costs when making multiple calls
+9. **Error Messages**: User-friendly messages for users, detailed logs for debugging
+10. **COCO Automation**: All email drafts require Stephenie's approval before sending
+11. **Company Branding**: RIDEWIRE LLC founded by Stephenie N. Lacy (hello@stepheniesgem.io)
 6. **Data Privacy**: User diagnostic history is private and confidential
 7. **API Costs**: Be mindful of API usage costs when making multiple AI calls
 8. **Error Messages**: User-friendly messages for users, detailed logs for debugging
