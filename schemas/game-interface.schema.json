@@ -10,8 +10,8 @@
       "properties": {
         "provider": {
           "type": "string",
-          "enum": ["chatgpt", "claude", "gemini"],
-          "description": "Which AI provided this response"
+          "enum": ["gpt4-strategist", "gpt4o-analyst", "gpt4turbo-validator"],
+          "description": "Which Azure OpenAI agent provided this response"
         },
         "confidence": {
           "type": "number",

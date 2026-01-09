@@ -15,11 +15,14 @@ const HeroSection = () => {
         <h1 style={{fontSize: '48px', marginBottom: '20px', fontWeight: 'bold'}}>
           RideWire AI Hub
         </h1>
-        <p style={{fontSize: '20px', marginBottom: '10px', color: '#00d9ff'}}>
-          Multi-AI Agent Collaboration Platform with AR Auto Diagnostic Foundation
+        <p style={{fontSize: '20px', marginBottom: '10px', color: '#0078D4'}}>
+          Enterprise Intelligence Platform - Built on Azure OpenAI Service
         </p>
-        <p style={{fontSize: '16px', marginBottom: '30px', color: '#cccccc', maxWidth: '600px', margin: '0 auto 30px'}}>
-          Three independent AI agents (ChatGPT, Claude, Gemini) collaborate in real-time to reach consensus on your vehicle's diagnostic queries.
+        <p style={{fontSize: '14px', marginBottom: '5px', color: '#107C10'}}>
+          RIDEWIRE LLC | Founded by Stephenie N. Lacy
+        </p>
+        <p style={{fontSize: '16px', marginBottom: '30px', color: '#cccccc', maxWidth: '700px', margin: '0 auto 30px'}}>
+          Three Azure OpenAI agents (GPT-4 Strategist, GPT-4o Analyst, GPT-4 Turbo Validator) collaborate with flip-flop adversarial validation to deliver 95%+ confidence intelligence reports and automated email outreach.
         </p>
         
         <div style={{marginBottom: '40px'}}>
@@ -28,8 +31,8 @@ const HeroSection = () => {
             style={{
               padding: '12px 30px',
               margin: '0 10px',
-              backgroundColor: '#00d9ff',
-              color: '#000',
+              backgroundColor: '#0078D4',
+              color: '#fff',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
@@ -37,7 +40,7 @@ const HeroSection = () => {
               fontSize: '16px'
             }}
           >
-            Start Diagnostic
+            Start Intelligence Query
           </button>
           <button 
             onClick={() => navigate('/register')}
@@ -45,8 +48,8 @@ const HeroSection = () => {
               padding: '12px 30px',
               margin: '0 10px',
               backgroundColor: 'transparent',
-              color: '#00d9ff',
-              border: '2px solid #00d9ff',
+              color: '#0078D4',
+              border: '2px solid #0078D4',
               borderRadius: '5px',
               cursor: 'pointer',
               fontWeight: 'bold',
@@ -58,21 +61,21 @@ const HeroSection = () => {
         </div>
 
         <div style={{display: 'flex', justifyContent: 'center', gap: '30px', marginBottom: '40px'}}>
-          <div><span style={{fontSize: '24px'}}>⚡</span> Multi-AI Consensus</div>
-          <div><span style={{fontSize: '24px'}}>🔒</span> End-to-End Encrypted</div>
-          <div><span style={{fontSize: '24px'}}>📱</span> AR Ready</div>
+          <div><span style={{fontSize: '24px'}}>⚡</span> Azure OpenAI Powered</div>
+          <div><span style={{fontSize: '24px'}}>🔒</span> 95%+ Confidence</div>
+          <div><span style={{fontSize: '24px'}}>📧</span> COCO Email Automation</div>
         </div>
 
         <div style={{
           backgroundColor: '#1a2f4a',
           padding: '40px',
           borderRadius: '10px',
-          border: '2px solid #00d9ff',
+          border: '2px solid #0078D4',
           textAlign: 'center'
         }}>
-          <p style={{margin: 0, color: '#00d9ff', fontSize: '14px', marginBottom: '10px'}}>FINISHED PRODUCT PREVIEW</p>
-          <p style={{margin: 0, fontSize: '24px', fontWeight: 'bold'}}>🚗 Multi-AI Diagnostic Engine + AR Overlays</p>
-          <p style={{margin: '10px 0 0 0', color: '#cccccc', fontSize: '14px'}}>Hero image placeholder: Agents + Vehicle + AR Diagnostics Visualization</p>
+          <p style={{margin: 0, color: '#0078D4', fontSize: '14px', marginBottom: '10px'}}>POWERED BY MICROSOFT AZURE</p>
+          <p style={{margin: 0, fontSize: '24px', fontWeight: 'bold'}}>🤖 Multi-AI Intelligence Engine + Flip-Flop Adversarial Validation</p>
+          <p style={{margin: '10px 0 0 0', color: '#cccccc', fontSize: '14px'}}>Hero image placeholder: Azure OpenAI Agents + Consensus Engine + COCO Email System</p>
         </div>
       </div>
     </section>

@@ -30,7 +30,7 @@ export default function Pricing() {
       description: 'For power users and teams',
       features: [
         '500 messages/month',
-        'Full AI consensus (ChatGPT, Claude, Gemini)',
+        'Full Azure OpenAI intelligence (GPT-4, GPT-4o, GPT-4 Turbo)',
         'Message history (90 days)',
         'Priority support',
         'Advanced encryption',

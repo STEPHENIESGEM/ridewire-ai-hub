@@ -67,14 +67,15 @@ export default function Terms() {
               2. Description of Service
             </h2>
             <p style={{ marginBottom: '15px' }}>
-              RideWire AI Hub is a multi-AI consensus platform that provides:
+              RideWire AI Hub is an Azure OpenAI-powered intelligence platform that provides:
             </p>
             <ul style={{ marginLeft: '20px' }}>
-              <li>Access to multiple AI models (ChatGPT, Claude, Gemini)</li>
-              <li>Real-time AI consensus generation</li>
+              <li>Access to Azure OpenAI Service (GPT-4, GPT-4o, GPT-4 Turbo)</li>
+              <li>Flip-flop adversarial validation for 95%+ confidence</li>
+              <li>COCO email automation system</li>
               <li>Encrypted message storage</li>
               <li>User authentication and session management</li>
-              <li>Dashboard and analytics features</li>
+              <li>Dashboard and CRM analytics features</li>
             </ul>
           </section>
 

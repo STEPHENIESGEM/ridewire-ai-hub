@@ -78,14 +78,14 @@ export default function Disclaimer() {
               2. AI-Generated Content Disclaimer
             </h2>
             <p style={{ marginBottom: '15px' }}>
-              Our platform uses multiple artificial intelligence models (ChatGPT, Claude, Gemini) to generate 
-              responses. While we strive for accuracy through our multi-AI consensus approach:
+              Our platform uses Azure OpenAI Service (GPT-4, GPT-4o, GPT-4 Turbo) with flip-flop adversarial 
+              validation to generate intelligence reports. While we achieve 95%+ confidence through adversarial validation:
             </p>
             <ul style={{ marginLeft: '20px' }}>
               <li>AI responses may contain errors, inaccuracies, or outdated information</li>
-              <li>Consensus does not guarantee correctness</li>
+              <li>High confidence scores do not guarantee absolute correctness</li>
               <li>AI models may have inherent biases or limitations</li>
-              <li>Responses should not replace professional consultation</li>
+              <li>Intelligence reports should not replace professional consultation</li>
             </ul>
           </section>
 
@@ -121,9 +121,9 @@ export default function Disclaimer() {
               5. Third-Party AI Services
             </h2>
             <p>
-              Our platform integrates with third-party AI services (OpenAI, Anthropic, Google). We are not 
-              responsible for the accuracy, reliability, or availability of these third-party services. 
-              Each service has its own terms of use and privacy policies.
+              Our platform is built on Azure OpenAI Service (Microsoft). We are not responsible for the 
+              accuracy, reliability, or availability of Azure's AI services. Azure OpenAI Service has its 
+              own terms of use and privacy policies governed by Microsoft.
             </p>
           </section>
 

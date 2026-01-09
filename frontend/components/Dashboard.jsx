@@ -153,10 +153,10 @@ export default function Dashboard() {
       }}>
         <h2 style={{ fontSize: '24px', marginBottom: '15px' }}>🎯 Getting Started</h2>
         <ul style={{ lineHeight: '2', color: '#cccccc' }}>
-          <li>Click "Start New Chat" to begin a multi-AI consultation</li>
-          <li>Ask questions to ChatGPT, Claude, and Gemini simultaneously</li>
-          <li>Review consensus recommendations from all three AI agents</li>
-          <li>Upgrade to Pro for unlimited messages and advanced features</li>
+          <li>Click "Start New Chat" to begin an Azure OpenAI intelligence query</li>
+          <li>Get analysis from GPT-4 Strategist, GPT-4o Analyst, and GPT-4 Turbo Validator</li>
+          <li>Review 95%+ confidence consensus after flip-flop adversarial validation</li>
+          <li>Upgrade to Pro for unlimited intelligence reports and COCO email automation</li>
         </ul>
       </div>
     </div>
