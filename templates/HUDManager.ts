@@ -10,8 +10,8 @@ export class HUDManager {
     const panelId = `panel-${Date.now()}`;
     const panel = {
       id: panelId,
-      type: result.consensus.severity === 'critical' ? 'warning' : 'diagnostic',
-      title: result.consensus.severity.toUpperCase(),
+      type: (result.consensus?.severity === 'critical') ? 'warning' : 'diagnostic',
+      title: (typeof result.consensus?.severity === 'string' ? result.consensus.severity : 'unknown').toUpperCase(),
       content: result.consensus.diagnosis,
       position: { x: 0.5, y: 0.8 },
       duration_ms,
